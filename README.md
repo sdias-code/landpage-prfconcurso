@@ -1,6 +1,6 @@
 # PRF ADM 2026 — Landing Page
 
-Landing page do aplicativo **PRF ADM: Questões, Simulados e Quiz Offline** para concurso de Agente Administrativo da Polícia Rodoviária Federal (nível médio).
+Landing page do aplicativo **PRF ADM: Questões, Simulados e Quiz ** para concurso de Agente Administrativo da Polícia Rodoviária Federal (nível médio).
 
 ## Seções
 
