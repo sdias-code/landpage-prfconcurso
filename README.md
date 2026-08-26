@@ -8,7 +8,7 @@ Landing page do aplicativo **PRF ADM: Questões, Simulados e Quiz** para concurs
 - **Como Funciona** — Banco de questões por disciplina, revisão inteligente e simulado cronometrado
 - **Metodologia** — Explicações pedagógicas e simulação de pressão real de prova
 - **Offline** — Banco de dados SQLite integrado, funciona sem internet
-- **Planos** — Premium (R$ 9,90) e Vitalício (R$ 19,90), pagamento único
+- **Planos** — Vitalício (R$ 19,99), pagamento único
 - **Carrossel** — Galeria de telas do aplicativo
 - **FAQ** — Perguntas frequentes sobre justificativas, atualizações, modo offline, simulados e planos
 
