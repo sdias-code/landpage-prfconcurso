@@ -73,6 +73,18 @@ h2 {
     max-width: 800px;
 }
 
+.hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-cta .btn-cta {
+    width: 100%;
+    max-width: 360px;
+}
+
 .hero-text h1 {
     font-size: 2.8rem;
     margin-bottom: 20px;
