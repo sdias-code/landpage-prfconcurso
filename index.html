@@ -198,34 +198,57 @@
         </section>
 
         <!-- CARROSSEL DE TELAS DO APLICATIVO -->
-        <section id="carrossel" aria-label="Telas do Aplicativo">
+        <section id="carrossel" aria-label="Telas e Vídeo do Aplicativo">
             <div class="container">
                 <h2>Veja o App em Ação</h2>
-                <div class="carousel-wrapper">
-                    <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Anterior">&#10094;</button>
-                    <div class="carousel-viewport">
-                        <div class="carousel-track" id="carouselTrack">
-                            <div class="carousel-slide"><img src="img/img01.jpg" alt="Tela 1 do aplicativo PRF ADM">
-                            </div>
-                            <div class="carousel-slide"><img src="img/img02.jpg" alt="Tela 2 do aplicativo PRF ADM">
-                            </div>
-                            <div class="carousel-slide"><img src="img/img03.jpg" alt="Tela 3 do aplicativo PRF ADM">
-                            </div>
-                            <div class="carousel-slide"><img src="img/img04.jpg" alt="Tela 4 do aplicativo PRF ADM">
-                            </div>
-                            <div class="carousel-slide"><img src="img/img05.jpg" alt="Tela 5 do aplicativo PRF ADM">
-                            </div>
-                            <div class="carousel-slide"><img src="img/img06.jpg" alt="Tela 6 do aplicativo PRF ADM">
-                            </div>
-                            <div class="carousel-slide"><img src="img/img07.jpg" alt="Tela 7 do aplicativo PRF ADM">
-                            </div>
-                            <div class="carousel-slide"><img src="img/img08.jpg" alt="Tela 8 do aplicativo PRF ADM">
+                <div class="app-showcase-container">
+                    <div class="showcase-carousel">
+                        <div class="carousel-viewport">
+                            <div class="carousel-track" id="carouselTrack">
+                                <div class="carousel-slide"><img src="img/img01.jpg"
+                                        alt="Tela 1 do aplicativo PRF ADM">
+                                </div>
+                                <div class="carousel-slide"><img src="img/img02.jpg"
+                                        alt="Tela 2 do aplicativo PRF ADM">
+                                </div>
+                                <div class="carousel-slide"><img src="img/img03.jpg"
+                                        alt="Tela 3 do aplicativo PRF ADM">
+                                </div>
+                                <div class="carousel-slide"><img src="img/img04.jpg"
+                                        alt="Tela 4 do aplicativo PRF ADM">
+                                </div>
+                                <div class="carousel-slide"><img src="img/img05.jpg"
+                                        alt="Tela 5 do aplicativo PRF ADM">
+                                </div>
+                                <div class="carousel-slide"><img src="img/img06.jpg"
+                                        alt="Tela 6 do aplicativo PRF ADM">
+                                </div>
+                                <div class="carousel-slide"><img src="img/img07.jpg"
+                                        alt="Tela 7 do aplicativo PRF ADM">
+                                </div>
+                                <div class="carousel-slide"><img src="img/img08.jpg"
+                                        alt="Tela 8 do aplicativo PRF ADM">
+                                </div>
                             </div>
                         </div>
+                        <div class="carousel-dots" id="carouselDots"></div>
                     </div>
-                    <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Próximo">&#10095;</button>
+                    <div class="showcase-video">
+                        <video id="appVideo" playsinline preload="metadata" poster="img/capa-video.jpg"
+                            aria-label="Demonstração em vídeo do aplicativo PRF ADM">
+                            <source src="video/video_info.mp4" type="video/mp4">
+                            Seu navegador não suporta a exibição deste vídeo.
+                        </video>
+                        <button class="video-play-btn" id="videoPlayBtn" aria-label="Reproduzir vídeo">
+                            <svg class="icon-play" viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
+                                <path fill="currentColor" d="M8 5v14l11-7z" />
+                            </svg>
+                            <svg class="icon-pause" viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
+                                <path fill="currentColor" d="M6 5h4v14H6zm8 0h4v14h-4z" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-                <div class="carousel-dots" id="carouselDots"></div>
                 <div class="cta-buttons">
                     <a href="https://play.google.com/store/apps/details?id=br.com.sdiascode.prfconcurso"
                         class="btn-cta">Baixar grátis na Google Play</a>
@@ -320,28 +343,40 @@
             });
         }
 
-        document.getElementById('carouselPrev').addEventListener('click', () => {
-            goTo(index === 0 ? total - 1 : index - 1);
-            resetAutoPlay();
-        });
-
-        document.getElementById('carouselNext').addEventListener('click', () => {
-            goTo(index === total - 1 ? 0 : index + 1);
-            resetAutoPlay();
-        });
-
         function startAutoPlay() {
             autoPlay = setInterval(() => {
                 goTo(index === total - 1 ? 0 : index + 1);
             }, 4000);
         }
 
-        function resetAutoPlay() {
-            clearInterval(autoPlay);
-            startAutoPlay();
+        startAutoPlay();
+
+        const video = document.getElementById('appVideo');
+        const playBtn = document.getElementById('videoPlayBtn');
+
+        function togglePlay() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
         }
 
-        startAutoPlay();
+        function updatePlayBtn() {
+            if (video.paused) {
+                playBtn.classList.remove('playing');
+            } else {
+                playBtn.classList.add('playing');
+            }
+        }
+
+        playBtn.addEventListener('click', togglePlay);
+        video.addEventListener('click', togglePlay);
+        video.addEventListener('play', updatePlayBtn);
+        video.addEventListener('pause', updatePlayBtn);
+        video.addEventListener('ended', () => {
+            video.currentTime = 0;
+        });
     </script>
 </body>
 
