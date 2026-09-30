@@ -133,6 +133,70 @@ h2 {
     color: var(--accent-gold);
 }
 
+.card-meta {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #000;
+    background-color: var(--accent-gold);
+    border-radius: 20px;
+    padding: 3px 14px;
+    margin-bottom: 12px;
+}
+
+.disc-group {
+    font-size: 1.5rem;
+    color: var(--text-white);
+    margin: 45px 0 20px 0;
+    padding-left: 14px;
+    border-left: 4px solid var(--accent-gold);
+    text-align: left;
+}
+
+.disc-group:first-of-type {
+    margin-top: 10px;
+}
+
+.feature-card p:last-child {
+    font-size: 0.95rem;
+    color: #e0e0e0;
+}
+
+/* COMPROMISSO */
+#compromisso {
+    background-color: #001a0e;
+}
+
+.commit-intro {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+.commit-intro strong {
+    color: var(--accent-gold);
+}
+
+.commit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 18px;
+    border-radius: 50%;
+    color: var(--accent-gold);
+    background: rgba(241, 196, 15, 0.1);
+    border: 2px solid rgba(241, 196, 15, 0.5);
+}
+
+.commit-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
 /* SHOWCASE */
 .showcase-row {
     display: flex;
